@@ -10,12 +10,12 @@
     </div>
     
     <div class="event-box">
-        <button mat-mini-fab aria-label="miniFabButton" color="primary">
+        <button (click)="openAddEvent()" mat-mini-fab aria-label="miniFabButton" color="primary">
             <mat-icon>add_circle</mat-icon>
         </button>
     </div>
     <ol>
-        <li *ngFor="let day of week" class="name-day">{{day | slice:0:3}}</li>
+        <li *ngFor="let day of week" class="name-day">{{day}}</li>
         <li class="day pointer" (click)="clickDay(day)" [style.gridColumnStart]="first ? day?.indexWeek : 'auto'"
         *ngFor="let day of monthSelect;let first = first">
 			<span>{{day?.value}}</span>

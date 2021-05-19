@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment';
 
+import {MatDialog} from '@angular/material/dialog';
+import { AddEventComponent } from '../add-event/add-event.component';
+import { stringify } from '@angular/compiler/src/util';
+
 @Component({
   selector: 'calendar',
   templateUrl: './calendar.component.html',
@@ -21,7 +25,7 @@ export class CalendarComponent implements OnInit {
   dateSelect: any;
   dateValue: any;
 
-  constructor() {
+  constructor( private matDialog: MatDialog) {
     
   }
 
@@ -76,6 +80,10 @@ export class CalendarComponent implements OnInit {
 
     console.log(this.dateValue);
     
+  }
+
+  openAddEvent() {
+    this.matDialog.open(AddEventComponent);
   }
 
 
